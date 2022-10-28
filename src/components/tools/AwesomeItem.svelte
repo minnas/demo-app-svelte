@@ -15,9 +15,11 @@
   <div class={myClass} on:mouseup={() => (show = !show)}>
     <Fa icon={faUserNinja} />
     {#if !show}
-      <slot name="title">
-        <span>No title</span>
-      </slot>
+      <span class="title-content">
+        <slot name="title">
+          <span>No title</span>
+        </slot>
+      </span>
     {/if}
     {#if show}
       <span class="body-content">
@@ -48,10 +50,10 @@
     align-items: center;
     padding: 1rem;
     width: 100%;
-    max-width: 500px;
     grid-column-gap: 2rem;
     border-bottom: 2px dashed rgba(148, 104, 254);
     font-size: 2.5rem;
+    line-height: 2.5rem;
     transition: all 0.25s ease;
   }
   .some-content.open {
@@ -66,5 +68,9 @@
   .some-content:hover {
     background-color: rgba(148, 104, 254, 0.3);
     cursor: pointer;
+  }
+  .title-content,
+  .body-content {
+    font-size: 1.8rem;
   }
 </style>
