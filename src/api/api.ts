@@ -3,13 +3,14 @@ import type { ButtonOptions } from "../types/type";
 import {
   faRainbow,
   faBug,
-  faHome,
-  faTimes
+  faBookmark,
+  faBookJournalWhills
 } from '@fortawesome/free-solid-svg-icons'
 
-const icons = [faRainbow, faBug, faHome, faTimes];
+const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills];
+const pages = ["/", "posts", "bookmarks", "todos"];
 
-export const dummyCards: Item[] = [...Array(8).keys()].map((index) => {
+export const dummyCards: Item[] = [...Array(20).keys()].map((index) => {
   return {
     id: (index + 1).toString(),
     title: `${index + 1}. Lorem Ipsum`,
@@ -19,10 +20,10 @@ export const dummyCards: Item[] = [...Array(8).keys()].map((index) => {
   } as Item;
 });
 
-export const dummyButtons: ButtonOptions[] = [...Array(4).keys()].map((index) => {
+export const dummyButtons: ButtonOptions[] = pages.map((page:string, index) => {
   return {
-    label: index < 3 ? `${index + 1}. Button` : "Close",
-    icon: icons.at(index)
+    icon: icons.at(index),
+    route: page
   } as ButtonOptions;
 });
 

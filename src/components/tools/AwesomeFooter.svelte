@@ -1,28 +1,19 @@
 <script lang="ts">
+  import { navigateTo } from 'svelte-router-spa'
   import { dummyButtons } from '../../api/api'
   import Button from '@Tools/AwesomeButton.svelte'
-  
-  let message = undefined
-  const sayMessage = (label) => {
-    if (label?.toLowerCase() === 'close') {
-      message = undefined
-    } else {
-      message = label
-    }
+
+  const goToMyPage = (page) => {
+    navigateTo(page || '/')
   }
 </script>
 
 <div class="some-footer">
-  {#if message}
-    <div class="some-message">
-      {message}
-    </div>
-  {/if}
   {#each dummyButtons as btn}
     <Button
       label={btn.label}
       icon={btn.icon}
-      btnClick={() => sayMessage(btn.label)}
+      btnClick={() => goToMyPage(btn.route)}
     />
   {/each}
 </div>
@@ -37,15 +28,5 @@
     margin: auto;
     width: 100%;
     transition: all 0.25s ease;
-  }
-  .some-message {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 2rem;
-    color: rgba(148, 104, 254);
-    padding: 1rem;
-    border: 2px solid rgba(148, 104, 254);
-    border-radius: 5px;
   }
 </style>
