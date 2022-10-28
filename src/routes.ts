@@ -6,8 +6,8 @@ import Cards from './components/views/Cards.svelte';
 const routes = [
     { name: '/', component:Cards, path: "/" },
     { name: 'bookmarks', component: Bookmarks, path: "/bookmarks" },
-    { name: 'Posts', component: Posts, path: "/posts" },
-    { name: 'Todos', component:Todos, path: "/todos" },
+    { name: 'posts', component: Posts, path: "/posts" },
+    { name: 'todos', component:Todos, path: "/todos" },
   ]
   
   export { routes }
