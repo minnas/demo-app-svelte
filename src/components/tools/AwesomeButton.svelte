@@ -32,5 +32,6 @@
   }
   .awesome-button:hover {
     background-color: rgba(148, 104, 254, 0.6);
+    font-size: 2rem;
   }
 </style>

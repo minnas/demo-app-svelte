@@ -10,4 +10,5 @@ export type Card = Omit<Item, "id"> & {};
 export type ButtonOptions = {
   icon: IconProp;
   label?: string;
+  route?: string;
 };

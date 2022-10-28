@@ -3,6 +3,8 @@
   import AwesomeHeader from '@Tools/AwesomeHeader.svelte'
   import AwesomeFooter from '@Tools/AwesomeFooter.svelte'
   import { dummyCards } from './api/api'
+  import { Router } from 'svelte-router-spa'
+  import { routes } from './routes'
 </script>
 
 <main>
@@ -10,12 +12,7 @@
     <AwesomeHeader />
   </div>
   <div class="awesome-content">
-    {#each dummyCards as item}
-      <Card>
-        <span slot="title">{item.title}</span>
-        <span slot="body">{item.body}</span>
-      </Card>
-    {/each}
+    <Router {routes} />
   </div>
   <div class="awesome-footer"><AwesomeFooter /></div>
 </main>

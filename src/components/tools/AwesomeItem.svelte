@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<style type="text/css" scoped>
+<style lang="css">
   .awesome-card {
     display: flex;
     flex-direction: column;
