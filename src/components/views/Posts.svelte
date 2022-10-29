@@ -7,9 +7,12 @@
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
   import { search } from '../../api/api'
-  import type { Item } from '../../types/type'
+  import type { Bookmark, Item, RawItem } from '../../types/type'
   import Button from '@Tools/AwesomeButton.svelte'
+  import { bookmarkStore } from '../../store/store'
   import { ApiType } from '../../api/api'
+  import { v4 as uuidv4 } from 'uuid'
+
   export let title = 'Fake Todos'
   $: posts = [] as Item[]
 
@@ -23,8 +26,13 @@
       })
   })
 
+  $: addedIds = $bookmarkStore.map((b: Bookmark) => b.externalId)
+
   const addBookmark = (item: Item) => {
-    console.log('add to bookmarks ' + item.id)
+    $bookmarkStore = [
+      ...$bookmarkStore,
+      { ...(item as RawItem), externalId: item.id, id: uuidv4() },
+    ]
   }
 </script>
 
@@ -38,7 +46,11 @@
       <div class="post-item">
         <Fa icon={faEnvelopeOpenText} />
         <div>{post.title}</div>
-        <Button icon={faBookBookmark} btnClick={() => addBookmark(post)} />
+        <Button
+          icon={faBookBookmark}
+          btnClick={() => addBookmark(post)}
+          disabled={addedIds.find((id) => id === post.id) != undefined}
+        />
       </div>
     {/each}
   </div>

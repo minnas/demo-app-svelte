@@ -1,7 +1,21 @@
 <script lang="ts">
   import Fa from 'svelte-fa'
-  import { faBookJournalWhills } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faBookJournalWhills,
+    faBookmark,
+    faTimes,
+  } from '@fortawesome/free-solid-svg-icons'
+  import { bookmarkStore } from '../../store/store'
+  import Button from '@Tools/AwesomeButton.svelte'
+  import type { Bookmark } from 'src/types/type'
+
   export let title = 'My Bookmarks'
+
+  const remove = (bookmark: Bookmark) => {
+    $bookmarkStore = $bookmarkStore.filter(
+      (item: Bookmark) => item.id !== bookmark.id
+    )
+  }
 </script>
 
 <div class="my-bookmarks">
@@ -9,7 +23,15 @@
     <Fa icon={faBookJournalWhills} />
     <h2>{title}</h2>
   </div>
-  <div class="bookmarks-in-the-list">There will be some bookmarks</div>
+  <div class="bookmarks-in-the-list">
+    {#each $bookmarkStore as bookmark}
+      <div class="bookmark-item">
+        <Fa icon={faBookmark} />
+        <div>{bookmark.title}</div>
+        <Button icon={faTimes} btnClick={() => remove(bookmark)} />
+      </div>
+    {/each}
+  </div>
 </div>
 
 <style>
@@ -38,5 +60,15 @@
     margin: auto;
     padding: 0;
     font-size: 2rem;
+  }
+  .bookmark-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  .bookmarks-in-the-list {
+    padding-top: 2rem;
   }
 </style>
