@@ -33,7 +33,7 @@
   $: addedIds = $bookmarkStore.map((b: Bookmark) => b.externalId)
 
   const addBookmark = (item: Item) => {
-    toggleToast();
+    toggleToast()
     $bookmarkStore = [
       ...$bookmarkStore,
       { ...(item as RawItem), externalId: item.id, id: uuidv4() },
@@ -41,17 +41,16 @@
   }
 
   const toggleToast = () => {
-    toastVisible = !toastVisible;
+    toastVisible = !toastVisible
     setTimeout(() => {
-      toastVisible = !toastVisible;
-    }, 800);
+      toastVisible = !toastVisible
+    }, 800)
   }
-
 </script>
 
 <div class="fake-posts">
   {#if toastVisible}
-    <Toast message={'Added to Bookmarks'}/>
+    <Toast message={'Added to Bookmarks'} />
   {/if}
   <div class="some-header">
     <Fa icon={faEnvelopesBulk} />

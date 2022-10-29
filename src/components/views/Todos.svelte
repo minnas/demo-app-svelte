@@ -32,7 +32,6 @@
   const remove = (item: Todo) => {
     $todosStore = $todosStore.filter((t: Todo) => t.id !== item.id)
   }
-
 </script>
 
 <div class="awesome-todos">
