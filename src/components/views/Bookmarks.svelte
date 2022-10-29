@@ -4,21 +4,34 @@
     faBookJournalWhills,
     faBookmark,
     faTimes,
+    faBugSlash,
   } from '@fortawesome/free-solid-svg-icons'
   import { bookmarkStore } from '@Store/store'
   import Button from '@Tools/AwesomeButton.svelte'
   import type { Bookmark } from '@Types/type'
+  import Toast from '@Tools/AwesomeToast.svelte'
 
   export let title = 'My Bookmarks'
+  let toastVisible = false
 
   const remove = (bookmark: Bookmark) => {
+    toggleToast()
     $bookmarkStore = $bookmarkStore.filter(
       (item: Bookmark) => item.id !== bookmark.id
     )
   }
+  const toggleToast = () => {
+    toastVisible = !toastVisible
+    setTimeout(() => {
+      toastVisible = !toastVisible
+    }, 600)
+  }
 </script>
 
 <div class="my-bookmarks">
+  {#if toastVisible}
+    <Toast message={'Removed'} icon={faBugSlash} />
+  {/if}
   <div class="some-header">
     <Fa icon={faBookJournalWhills} />
     <h2>{title}</h2>
