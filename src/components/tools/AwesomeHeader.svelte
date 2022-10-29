@@ -1,12 +1,14 @@
 <script lang="ts">
   import Fa from 'svelte-fa'
   import { faSunPlantWilt } from '@fortawesome/free-solid-svg-icons'
+  import logo from '@Assets/svelte.svg'
   export let title = 'Small Demo with Vite + Svelte'
 </script>
 
 <div class="some-header">
   <Fa icon={faSunPlantWilt} />
   <h1>{title}</h1>
+  <img class="svelte-logo" src={logo} alt="" />
 </div>
 
 <style>
@@ -25,5 +27,10 @@
     margin: auto;
     padding: 0;
     font-size: 2.5rem;
+  }
+  .some-header .svelte-logo {
+    height: 2.5rem;
+    width: auto;
+    align-self: flex-end;
   }
 </style>

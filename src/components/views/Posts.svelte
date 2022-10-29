@@ -13,6 +13,7 @@
   import { ApiType } from '@Api/api'
   import { v4 as uuidv4 } from 'uuid'
   import Toast from '@Tools/AwesomeToast.svelte'
+  import Spinner from '@Tools/AwesomeSpinner.svelte'
 
   export let title = 'Fake Todos'
 
@@ -57,6 +58,9 @@
     <h2>{title}</h2>
   </div>
   <div class="posts-in-the-list">
+    {#if posts.length < 1}
+      <Spinner />
+    {/if}
     {#each posts as post}
       <div class="post-item">
         <Fa icon={faEnvelopeOpenText} />
