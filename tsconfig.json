@@ -21,6 +21,7 @@
       "@Api/*": ["./src/api/*"],
       "@Types/*": ["./src/types/*"],
       "@Store/*": ["./src/store/*"],
+      "@Assets/*": ["./src/assets/*"],
     }
 
   },

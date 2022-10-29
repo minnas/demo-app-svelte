@@ -5,6 +5,7 @@
   import { search } from '@Api/api'
   import { onMount } from 'svelte'
   import type { Item } from '@Types/type'
+  import Spinner from '@Tools/AwesomeSpinner.svelte'
 
   let title = 'Some random cards'
   $: cards = [] as Item[]
@@ -26,6 +27,9 @@
     <h2>{title}</h2>
   </div>
   <div class="cards-in-the-list">
+    {#if cards.length < 1}
+      <Spinner />
+    {/if}
     {#each cards as item}
       <Card>
         <span slot="title">{item.title}</span>
