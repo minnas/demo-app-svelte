@@ -1,7 +1,7 @@
-import Bookmarks from './components/views/Bookmarks.svelte';
-import Posts from './components/views/Posts.svelte';
-import Todos from './components/views/Todos.svelte';
-import Cards from './components/views/Cards.svelte';
+import Bookmarks from '@Views/Bookmarks.svelte';
+import Posts from '@Views/Posts.svelte';
+import Todos from '@Views/Todos.svelte';
+import Cards from '@Views/Cards.svelte';
 
 const routes = [
     { name: '/', component:Cards, path: "/" },

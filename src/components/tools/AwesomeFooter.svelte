@@ -1,6 +1,6 @@
 <script lang="ts">
   import { navigateTo } from 'svelte-router-spa'
-  import { dummyButtons } from '../../api/api'
+  import { dummyButtons } from '@Api/api'
   import Button from '@Tools/AwesomeButton.svelte'
 
   const goToMyPage = (page) => {

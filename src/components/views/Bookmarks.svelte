@@ -5,9 +5,9 @@
     faBookmark,
     faTimes,
   } from '@fortawesome/free-solid-svg-icons'
-  import { bookmarkStore } from '../../store/store'
+  import { bookmarkStore } from '@Store/store'
   import Button from '@Tools/AwesomeButton.svelte'
-  import type { Bookmark } from 'src/types/type'
+  import type { Bookmark } from '@Types/type'
 
   export let title = 'My Bookmarks'
 

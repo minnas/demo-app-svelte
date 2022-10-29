@@ -6,10 +6,10 @@
     faTimes,
     faPlus,
   } from '@fortawesome/free-solid-svg-icons'
-  import { todosStore } from '../../store/store'
+  import { todosStore } from '@Store/store'
   import Button from '@Tools/AwesomeButton.svelte'
   import { v4 as uuidv4 } from 'uuid'
-  import type { Todo } from 'src/types/type'
+  import type { Todo } from '@Types/type'
 
   export let title = 'My Todos'
 
@@ -32,6 +32,7 @@
   const remove = (item: Todo) => {
     $todosStore = $todosStore.filter((t: Todo) => t.id !== item.id)
   }
+
 </script>
 
 <div class="awesome-todos">

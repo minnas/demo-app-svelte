@@ -1,8 +1,6 @@
 <script lang="ts">
-  import Card from '@Tools/AwesomeItem.svelte'
   import AwesomeHeader from '@Tools/AwesomeHeader.svelte'
   import AwesomeFooter from '@Tools/AwesomeFooter.svelte'
-  import { dummyCards } from './api/api'
   import { Router } from 'svelte-router-spa'
   import { routes } from './routes'
 </script>

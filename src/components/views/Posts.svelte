@@ -6,14 +6,18 @@
   } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
-  import { search } from '../../api/api'
-  import type { Bookmark, Item, RawItem } from '../../types/type'
+  import { search } from '@Api/api'
+  import type { Bookmark, Item, RawItem } from '@Types/type'
   import Button from '@Tools/AwesomeButton.svelte'
-  import { bookmarkStore } from '../../store/store'
-  import { ApiType } from '../../api/api'
+  import { bookmarkStore } from '@Store/store'
+  import { ApiType } from '@Api/api'
   import { v4 as uuidv4 } from 'uuid'
+  import Toast from '@Tools/AwesomeToastt.svelte'
 
   export let title = 'Fake Todos'
+
+  let toastVisible = false
+
   $: posts = [] as Item[]
 
   onMount(() => {
@@ -29,14 +33,26 @@
   $: addedIds = $bookmarkStore.map((b: Bookmark) => b.externalId)
 
   const addBookmark = (item: Item) => {
+    toggleToast();
     $bookmarkStore = [
       ...$bookmarkStore,
       { ...(item as RawItem), externalId: item.id, id: uuidv4() },
     ]
   }
+
+  const toggleToast = () => {
+    toastVisible = !toastVisible;
+    setTimeout(() => {
+      toastVisible = !toastVisible;
+    }, 800);
+  }
+
 </script>
 
 <div class="fake-posts">
+  {#if toastVisible}
+    <Toast message={'Added to Bookmarks'}/>
+  {/if}
   <div class="some-header">
     <Fa icon={faEnvelopesBulk} />
     <h2>{title}</h2>

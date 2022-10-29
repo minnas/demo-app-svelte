@@ -2,9 +2,9 @@
   import { faIdCardClip } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import Card from '@Tools/AwesomeItem.svelte'
-  import { search } from '../../api/api'
+  import { search } from '@Api/api'
   import { onMount } from 'svelte'
-  import type { Item } from 'src/types/type'
+  import type { Item } from '@Types/type'
 
   let title = 'Some random cards'
   $: cards = [] as Item[]
