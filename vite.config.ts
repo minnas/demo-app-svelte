@@ -7,7 +7,11 @@ export default defineConfig({
   optimizeDeps: { exclude: ["svelte-router-spa"] },
   resolve: {
     alias: {
-      "@Tools": path.resolve(__dirname, "./src/components/tools")
+      "@Tools": path.resolve(__dirname, "./src/components/tools"),
+      "@Views": path.resolve(__dirname, "./src/components/views"),
+      "@Api": path.resolve(__dirname, "./src/api"),
+      "@Types": path.resolve(__dirname, "./src/types"),
+      "@Store": path.resolve(__dirname, "./src/store")
     },
   },
 });

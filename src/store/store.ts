@@ -1,4 +1,4 @@
-import type { Bookmark, Todo } from 'src/types/type'
+import type { Bookmark, Todo } from '@Types/type'
 import { writable } from 'svelte/store'
 
 export const bookmarkStore = writable([] as Bookmark[])

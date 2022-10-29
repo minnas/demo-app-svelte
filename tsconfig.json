@@ -17,6 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@Tools/*": ["./src/components/tools/*"],
+      "@Views/*": ["./src/components/views/*"],
+      "@Api/*": ["./src/api/*"],
+      "@Types/*": ["./src/types/*"],
+      "@Store/*": ["./src/store/*"],
     }
 
   },
