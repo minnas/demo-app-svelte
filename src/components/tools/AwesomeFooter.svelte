@@ -3,7 +3,7 @@
   import { dummyButtons } from '@Api/api'
   import Button from '@Tools/AwesomeButton.svelte'
 
-  const goToMyPage = (page) => {
+  const goToMyPage = (page:string) => {
     navigateTo(page || '/')
   }
 </script>
