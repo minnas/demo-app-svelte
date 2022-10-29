@@ -5,10 +5,20 @@ export type Item = {
   title: string;
   body: string;
 };
-export type Card = Omit<Item, "id"> & {};
 
 export type ButtonOptions = {
   icon: IconProp;
   label?: string;
   route?: string;
+};
+
+export type RawItem = Omit<Item, "id"> & {};
+
+export type Bookmark = Item & {
+  externalId: string;
+  created?: Date;
+};
+
+export type Todo = Omit<Item, "title"> & {
+  done?: boolean;
 };

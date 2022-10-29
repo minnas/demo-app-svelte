@@ -4,16 +4,20 @@
 
   export let icon = undefined
   export let label = 'no name'
+  export let disabled = false
+  export let onlyIcon = true
+
   export let btnClick = () => {
     console.log('click me')
   }
 
   $: btnIcon = icon || faCheck
+  $: btnDisabled = disabled || false
 </script>
 
-<button on:click={btnClick} class="awesome-button">
+<button on:click={btnClick} class="awesome-button" disabled={btnDisabled}>
   <Fa icon={btnIcon} />
-  {#if !label}
+  {#if label && !onlyIcon}
     <span class="some-label">{label}</span>
   {/if}
 </button>
@@ -33,5 +37,9 @@
   .awesome-button:hover {
     background-color: rgba(148, 104, 254, 0.6);
     font-size: 2rem;
+  }
+  .awesome-button[disabled] {
+    cursor: not-allowed;
+    background-color: rgba(148, 104, 254, 0.3);
   }
 </style>

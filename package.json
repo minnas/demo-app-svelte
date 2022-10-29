@@ -30,6 +30,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "svelte-fa": "^3.0.3",
-    "svelte-router-spa": "^6.0.3"
+    "svelte-router-spa": "^6.0.3",
+    "uuid": "^9.0.0"
   }
 }
