@@ -4,6 +4,7 @@
     faStickyNote,
     faBookAtlas,
     faTimes,
+    faPlus
   } from '@fortawesome/free-solid-svg-icons'
   import { todosStore } from '../../store/store'
   import Button from '@Tools/AwesomeButton.svelte'
@@ -13,8 +14,13 @@
   export let title = 'My Todos'
 
   let todo = ''
+  let addTodoVisible = false;
 
   const saveTodo = (e) => {
+    if (e.key === 'Escape') {
+      addTodoVisible = !addTodoVisible;
+      return false;
+    }
     if (e.key === 'Enter') {
       e.preventDefault()
       $todosStore = [...$todosStore, { id: uuidv4(), body: todo }]
@@ -26,6 +32,7 @@
   const remove = (item: Todo) => {
     $todosStore = $todosStore.filter((t: Todo) => t.id !== item.id)
   }
+
 </script>
 
 <div class="awesome-todos">
@@ -34,13 +41,20 @@
     <h2>{title}</h2>
   </div>
   <div class="a-new-todo">
-    <textarea
-      contenteditable="true"
-      bind:value={todo}
-      on:keydown={saveTodo}
-      id="my-todo"
-      placeholder="write new todo and press enter"
-    />
+    {#if !addTodoVisible}
+        <Button icon={faPlus} label="Add Todo" onlyIcon={false} btnClick={() => addTodoVisible = !addTodoVisible}/>
+    {/if}
+    {#if addTodoVisible}
+        <textarea
+          contenteditable="true"
+          bind:value={todo}
+          on:keydown={saveTodo}
+          id="my-todo"
+          placeholder="write new todo and press enter. Close by Esc or times btn"
+        />
+        <Button icon={faTimes} btnClick={() => addTodoVisible = !addTodoVisible}/>
+    {/if}
+
   </div>
   <div class="the-todos-are-here">
     {#each $todosStore as item}
@@ -79,8 +93,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 1rem;
+    transition: all 0.25s ease;
+    grid-column-gap: 1rem;
   }
   .a-new-todo textarea {
     padding: 1rem;
