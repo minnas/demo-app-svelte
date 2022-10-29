@@ -78,10 +78,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    grid-column-gap: 1rem;
     width: 100%;
     font-size: 1.8rem;
   }
   .bookmarks-in-the-list {
-    padding-top: 2rem;
+    padding: 2rem;
   }
 </style>
