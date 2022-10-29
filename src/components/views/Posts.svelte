@@ -12,7 +12,7 @@
   import { bookmarkStore } from '@Store/store'
   import { ApiType } from '@Api/api'
   import { v4 as uuidv4 } from 'uuid'
-  import Toast from '@Tools/AwesomeToastt.svelte'
+  import Toast from '@Tools/AwesomeToast.svelte'
 
   export let title = 'Fake Todos'
 
