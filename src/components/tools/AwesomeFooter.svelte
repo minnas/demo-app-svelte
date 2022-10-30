@@ -2,23 +2,10 @@
   import { navigateTo } from 'svelte-router-spa'
   import { dummyButtons } from '@Api/api'
   import Button from '@Tools/AwesomeButton.svelte'
-  import { appTheme } from '@Store/store'
-  import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+  import ThemeSwitch from '@Tools/ThemeSwitch.svelte'
 
   const goToMyPage = (page: string) => {
     navigateTo(page || '/')
-  }
-
-  $: toggleIcon = $appTheme === 'dark' ? faSun : faMoon
-  
-  const switchTheme = () => {
-    if ($appTheme === 'dark') {
-      $appTheme = 'light'
-    } else {
-      $appTheme = 'dark'
-    }
-    document.documentElement.classList.remove('light', 'dark')
-    document.documentElement.classList.add($appTheme)
   }
 </script>
 
@@ -30,9 +17,7 @@
       btnClick={() => goToMyPage(btn.route)}
     />
   {/each}
-  <div class="toggle-theme">
-    <Button icon={toggleIcon} btnClick={() => switchTheme()} />
-  </div>
+  <ThemeSwitch />
 </div>
 
 <style>
@@ -45,10 +30,5 @@
     margin: auto;
     width: 100%;
     transition: all 0.25s ease;
-  }
-  .toggle-theme {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
   }
 </style>
