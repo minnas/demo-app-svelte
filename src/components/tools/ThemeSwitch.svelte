@@ -6,12 +6,8 @@
   $: toggleIcon = $appTheme === 'dark' ? faSun : faMoon
 
   const switchTheme = () => {
-    if ($appTheme === 'dark') {
-      $appTheme = 'light'
-    } else {
-      $appTheme = 'dark'
-    }
-    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.remove($appTheme)
+    $appTheme = $appTheme === 'dark' ? 'light' : 'dark'
     document.documentElement.classList.add($appTheme)
   }
 </script>
