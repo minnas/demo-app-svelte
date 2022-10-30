@@ -33,6 +33,9 @@
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.25s ease;
+    background-color: transparent;
+    color: var(--btn-color);
+    font-size: 1.6rem;
   }
   .awesome-button:hover {
     background-color: var(--highlight-color-6);
