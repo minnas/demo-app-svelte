@@ -103,7 +103,7 @@
     flex: 1;
   }
   .some-header.animate {
-    animation: colorize infinite 5s linear;
+    animation: colorize infinite 4s linear;
   }
   @keyframes colorize {
     0% {
