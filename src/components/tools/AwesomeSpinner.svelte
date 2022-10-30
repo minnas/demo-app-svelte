@@ -19,7 +19,7 @@
     height: 6rem;
     width: auto;
     animation: spin infinite 5s linear;
-    filter: drop-shadow(20px 0px 0px rgba(148, 104, 254, 0.8));
+    filter: drop-shadow(20px 0px 0px var(--highlight-color-8));
   }
   @keyframes spin {
     from {

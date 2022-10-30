@@ -90,7 +90,7 @@
     justify-content: space-between;
     grid-column-gap: 2rem;
     padding: 1rem;
-    border-bottom: 2px dashed rgba(148, 104, 254, 0.6);
+    border-bottom: 2px dashed var(--highlight-color);
     margin: auto;
     font-size: 2.5rem;
     flex: 1;

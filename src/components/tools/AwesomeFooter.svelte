@@ -24,7 +24,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 1rem;
-    border-top: 2px dashed rgba(148, 104, 254, 0.6);
+    border-top: 2px dashed var(--highlight-color-6);
     margin: auto;
     width: 100%;
     transition: all 0.25s ease;
