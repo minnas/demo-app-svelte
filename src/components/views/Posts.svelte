@@ -18,8 +18,10 @@
   export let title = 'Fake Todos'
 
   let toastVisible = false
+  let animate = true
 
   $: posts = [] as Item[]
+  $: titleClass = animate ? 'some-header animate' : 'some-header'
 
   onMount(() => {
     search(ApiType.TODOS)
@@ -29,6 +31,9 @@
       .catch((e) => {
         console.log('Something did not work')
       })
+    setTimeout(() => {
+      animate = false
+    }, 4000)
   })
 
   $: addedIds = $bookmarkStore.map((b: Bookmark) => b.externalId)
@@ -53,7 +58,7 @@
   {#if toastVisible}
     <Toast message={'Added to Bookmarks'} />
   {/if}
-  <div class="some-header">
+  <div class={titleClass}>
     <Fa icon={faEnvelopesBulk} />
     <h2>{title}</h2>
   </div>
@@ -97,6 +102,27 @@
     font-size: 2.5rem;
     flex: 1;
   }
+  .some-header.animate {
+    animation: colorize infinite 5s linear;
+  }
+  @keyframes colorize {
+    0% {
+      color: rgba(148, 104, 254, 1);
+    }
+    25% {
+      color: rgba(148, 104, 254, 0.5);
+    }
+    50% {
+      color: rgba(148, 104, 254, 0.3);
+    }
+    75% {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    100% {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
   .some-header h2 {
     margin: auto;
     padding: 0;
