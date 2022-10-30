@@ -122,6 +122,7 @@
     grid-column-gap: 1rem;
     width: 100%;
     font-size: 1.8rem;
+    line-height: 2rem;
   }
   .the-todos-are-here {
     padding: 2rem;
