@@ -17,7 +17,7 @@
   --highlight-color-8: rgba(148, 104, 254, .8);
   --highlight-color-6: rgba(148, 104, 254, .6);
   --highlight-color-3: rgba(148, 104, 254, .3);
-  --text-color: rgba(255,255,255, 1)
+  --text-color: rgba(255,255,255, 1);
 }
 
 a {
