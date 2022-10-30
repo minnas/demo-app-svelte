@@ -104,13 +104,12 @@
   }
   @keyframes colorize {
     from {
-      color: rgba(148, 104, 254, 0.3);
-    }
-    to {
       color: rgba(148, 104, 254, 1);
     }
+    to {
+      color: rgba(255,255,255, 1);
+    }
   }
-
   .some-header h2 {
     margin: auto;
     padding: 0;
