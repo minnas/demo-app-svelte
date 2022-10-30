@@ -51,14 +51,14 @@
     padding: 1rem;
     width: 100%;
     grid-column-gap: 2rem;
-    border-bottom: 2px dashed rgba(148, 104, 254);
+    border-bottom: 2px dashed var(--highlight-color);
     font-size: 2.5rem;
     line-height: 2.5rem;
     transition: all 0.25s ease;
   }
   .some-content.open {
-    border-right: 2px dashed rgba(148, 104, 254);
-    box-shadow: -1rem 0 0.4rem rgba(148, 104, 254);
+    border-right: 2px dashed var(--highlight-color);
+    box-shadow: -1rem 0 0.4rem var(--highlight-color);
     margin: 1rem auto;
   }
   .some-content.open > .body-content {
@@ -66,7 +66,7 @@
     line-height: 2rem;
   }
   .some-content:hover {
-    background-color: rgba(148, 104, 254, 0.3);
+    background-color: var(--highlight-color-3);
     cursor: pointer;
   }
   .title-content,

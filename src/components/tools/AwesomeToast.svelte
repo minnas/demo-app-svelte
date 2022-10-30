@@ -19,8 +19,8 @@
     top: 20%;
     right: 20%;
     z-index: 999;
-    background-color: rgba(148, 104, 254, 0.3);
-    border: 2px dashed rgba(148, 104, 254);
+    background-color: var(--highlight-color-3);
+    border: 2px dashed var(--highlight-color);
     border-radius: 5px;
     transition: all 0.25s ease;
   }
@@ -32,7 +32,7 @@
     padding: 1rem 1.2rem;
     cursor: pointer;
     font-size: 2.5rem;
-    color: rgba(148, 104, 254);
+    color: var(--highlight-color);
   }
   .toast-content span {
     font-size: 1.5rem;

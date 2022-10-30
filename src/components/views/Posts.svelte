@@ -94,7 +94,7 @@
     justify-content: space-between;
     grid-column-gap: 2rem;
     padding: 0.5rem;
-    border-bottom: 2px dashed rgba(148, 104, 254, 0.6);
+    border-bottom: 2px dashed var(--highlight-color-6);
     margin: auto;
     font-size: 2.5rem;
     flex: 1;
@@ -104,10 +104,10 @@
   }
   @keyframes colorize {
     from {
-      color: rgba(148, 104, 254, 1);
+      color: var(--highlight-color);
     }
     to {
-      color: rgba(255,255,255, 1);
+      color: var(--text-color);
     }
   }
   .some-header h2 {

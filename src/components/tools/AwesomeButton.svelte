@@ -29,17 +29,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.2rem;
-    border: 1px solid rgba(148, 104, 254);
+    border: 1px solid var(--highlight-color);
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.25s ease;
   }
   .awesome-button:hover {
-    background-color: rgba(148, 104, 254, 0.6);
+    background-color: var(--highlight-color-6);
     font-size: 2rem;
   }
   .awesome-button[disabled] {
     cursor: not-allowed;
-    background-color: rgba(148, 104, 254, 0.3);
+    background-color: var(--highlight-color-3);
   }
 </style>
