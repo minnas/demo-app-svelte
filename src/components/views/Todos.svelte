@@ -10,6 +10,7 @@
   import Button from '@Tools/AwesomeButton.svelte'
   import { v4 as uuidv4 } from 'uuid'
   import type { Todo } from '@Types/type'
+  import PlaceHolder from '@Tools/PlaceHolder.svelte'
 
   export let title = 'My Todos'
 
@@ -63,6 +64,9 @@
     {/if}
   </div>
   <div class="the-todos-are-here">
+    {#if $todosStore.length < 1}
+      <PlaceHolder text="No Todos in The list" />
+    {/if}
     {#each $todosStore as item}
       <div class="one-todo-item">
         <Fa icon={faBookAtlas} />

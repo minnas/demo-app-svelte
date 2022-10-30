@@ -10,6 +10,7 @@
   import Button from '@Tools/AwesomeButton.svelte'
   import type { Bookmark } from '@Types/type'
   import Toast from '@Tools/AwesomeToast.svelte'
+  import PlaceHolder from '@Tools/PlaceHolder.svelte'
 
   export let title = 'My Bookmarks'
   let toastVisible = false
@@ -37,6 +38,9 @@
     <h2>{title}</h2>
   </div>
   <div class="bookmarks-in-the-list">
+    {#if $bookmarkStore.length < 1}
+      <PlaceHolder />
+    {/if}
     {#each $bookmarkStore as bookmark}
       <div class="bookmark-item">
         <Fa icon={faBookmark} />
