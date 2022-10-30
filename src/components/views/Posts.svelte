@@ -16,9 +16,9 @@
   import Spinner from '@Tools/AwesomeSpinner.svelte'
 
   export let title = 'Fake Todos'
+  export let animate = true
 
   let toastVisible = false
-  let animate = true
 
   $: posts = [] as Item[]
   $: titleClass = animate ? 'some-header animate' : 'some-header'
@@ -31,9 +31,6 @@
       .catch((e) => {
         console.log('Something did not work')
       })
-    setTimeout(() => {
-      animate = false
-    }, 4000)
   })
 
   $: addedIds = $bookmarkStore.map((b: Bookmark) => b.externalId)
@@ -103,23 +100,14 @@
     flex: 1;
   }
   .some-header.animate {
-    animation: colorize infinite 4s linear;
+    animation: colorize 5s ease-in-out;
   }
   @keyframes colorize {
-    0% {
-      color: rgba(148, 104, 254, 1);
-    }
-    25% {
-      color: rgba(148, 104, 254, 0.5);
-    }
-    50% {
+    from {
       color: rgba(148, 104, 254, 0.3);
     }
-    75% {
-      color: rgba(255, 255, 255, 0.5);
-    }
-    100% {
-      color: rgba(255, 255, 255, 1);
+    to {
+      color: rgba(148, 104, 254, 1);
     }
   }
 
