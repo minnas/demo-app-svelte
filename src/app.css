@@ -18,6 +18,7 @@
   --highlight-color-6: rgba(148, 104, 254, .6);
   --highlight-color-3: rgba(148, 104, 254, .3);
   --text-color: rgba(255,255,255, 1);
+  --btn-color: rgba(255,255,255, 1);
 }
 
 a {
@@ -84,4 +85,15 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+:root.light {
+  color: #213547;
+  background-color: rgba(255,255,255,0.9);
+
+  --highlight-color: rgba(0, 102, 204, 1);
+  --highlight-color-8: rgba(0, 102, 204, .8);
+  --highlight-color-6: rgba(0, 102, 204, .6);
+  --highlight-color-3: rgba(0, 102, 204, .3);
+  --text-color: rgba(0, 102, 204, 1);
+  --btn-color: rgba(0,0,0, .8);
 }
