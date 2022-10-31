@@ -82,6 +82,7 @@
     display: flex;
     flex-direction: column;
     grid-row-gap: 1rem;
+    animation: fadeIn 2s ease-in-out;
   }
   .color-set {
     display: flex;
@@ -118,5 +119,13 @@
   }
   .a-new-color.white {
     background-color: #ffffff;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>
