@@ -4,11 +4,12 @@ import {
   faRainbow,
   faBug,
   faBookmark,
-  faBookJournalWhills
+  faBookJournalWhills,
+  faPaintBrush
 } from '@fortawesome/free-solid-svg-icons'
 
-const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills];
-const pages = ["/", "posts", "bookmarks", "todos"];
+const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills, faPaintBrush];
+const pages = ["/", "posts", "bookmarks", "todos", 'svg'];
 
 export const dummyCards: Item[] = [...Array(20).keys()].map((index) => {
   return {

@@ -22,6 +22,7 @@
       "@Types/*": ["./src/types/*"],
       "@Store/*": ["./src/store/*"],
       "@Assets/*": ["./src/assets/*"],
+      "@Svg/*": ["./src/components/svg/*"],
     }
 
   },
