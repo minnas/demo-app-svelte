@@ -17,8 +17,10 @@
   --highlight-color-8: rgba(148, 104, 254, .8);
   --highlight-color-6: rgba(148, 104, 254, .6);
   --highlight-color-3: rgba(148, 104, 254, .3);
-  --text-color: rgba(255,255,255, 1);
-  --btn-color: rgba(255,255,255, 1);
+  --text-color: rgba(255, 255, 255, 1);
+  --btn-color: rgba(255, 255, 255, 1);
+  --shadow-color-6: rgba(0, 0, 0, .6);
+  --shadow-color-8: rgba(0, 0, 0, .8);
 }
 
 a {
@@ -96,4 +98,6 @@ button:focus-visible {
   --highlight-color-3: rgba(0, 102, 204, .3);
   --text-color: rgba(0, 102, 204, 1);
   --btn-color: rgba(0,0,0, .8);
+  --shadow-color-6: rgba(0, 0, 0, .6);
+  --shadow-color-8: rgba(0, 0, 0, .8);
 }
