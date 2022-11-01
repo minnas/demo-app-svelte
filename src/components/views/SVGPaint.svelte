@@ -8,8 +8,8 @@
   const colors = ['red', 'green', 'blue', 'yellow', 'white']
   const ignoreTags = ['svg', 'text']
   const ignoreColors = ['rgb(0, 0, 0)', '#000000']
+
   let currentColor = colors.at(0)
-  $: selected = currentColor
 
   onMount(() => {
     const mySVG = document.querySelector('.svg-image > svg') as HTMLElement
@@ -41,7 +41,7 @@
     <div class="color-set">
       {#each colors as color}
         <div
-          class={color === selected
+          class={color === currentColor
             ? 'a-new-color ' + color + ' selected'
             : 'a-new-color ' + color}
           on:mouseup={() => selectMe(color)}
@@ -92,18 +92,20 @@
     grid-column-gap: 1.5rem;
   }
   .a-new-color {
-    border: 1px dashed var(--highlight-color);
-    width: 2rem;
+    border: 3px solid transparent;
+    width: 1.8rem;
     height: 1.8rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 2rem;
     cursor: pointer;
     transition: all 0.25s ease;
   }
+  .a-new-color:hover {
+    padding: 1rem;
+    box-shadow: 10px 5px 5px var(--shadow-color-6);
+  }
   .a-new-color.selected {
-    width: 2.5rem;
-    height: 2.2rem;
-    border: 2px dashed var(--highlight-color);
+    border: 3px dashed var(--shadow-color-8);
   }
   .a-new-color.red {
     background-color: red;
