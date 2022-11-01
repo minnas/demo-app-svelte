@@ -1,13 +1,15 @@
 <script lang="ts">
-  import { faCat } from '@fortawesome/free-solid-svg-icons'
+  import { faCat, faRefresh } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
   import Cat from '@Svg/cat.svelte'
+  import Button from '@Tools/AwesomeButton.svelte'
 
   let title = 'Colourize SVG'
   const colors = ['red', 'green', 'blue', 'yellow', 'white']
   const ignoreTags = ['svg', 'text']
   const ignoreColors = ['rgb(0, 0, 0)', '#000000']
+  const clearColor = '#ffffff'
 
   let currentColor = colors.at(0)
 
@@ -27,6 +29,23 @@
     })
   })
 
+  const clear = () => {
+    const mySVG = document.querySelector('.svg-image > svg') as HTMLElement
+    mySVG.querySelectorAll('*').forEach((node) => {
+      const tagName = node.tagName || undefined
+      const attr = node.getAttribute('fill') || undefined
+      if (!tagName || !attr) {
+        return
+      }
+      if (
+        !ignoreTags.find((tag) => tag === tagName) &&
+        !ignoreColors.find((c) => c == node.getAttribute('fill'))
+      ) {
+        node.setAttribute('fill', clearColor)
+      }
+    })
+  }
+
   const selectMe = (color: string) => {
     currentColor = color
   }
@@ -36,6 +55,7 @@
   <div class="some-header">
     <Fa icon={faCat} />
     <h2>{title}</h2>
+    <Button btnClick={() => clear()} icon={faRefresh} />
   </div>
   <div class="some-content">
     <div class="color-set">
