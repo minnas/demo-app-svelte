@@ -21,8 +21,6 @@
   onMount(() => {
     const mySVG = document.querySelector('.svg-from-store') as HTMLElement
     mySVG.innerHTML = $svgStore
-
-    //const mySVG = document.querySelector('.svg-image > svg') as HTMLElement
     mySVG.style.cursor = 'pointer'
     mySVG.addEventListener('mouseup', (e: MouseEvent) => {
       const target = e.target as HTMLElement
