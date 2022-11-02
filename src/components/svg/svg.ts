@@ -1,4 +1,4 @@
-<svg width="250" height="399" xmlns="http://www.w3.org/2000/svg">
+export const svgCat = `<svg width="250" height="399" xmlns="http://www.w3.org/2000/svg">
   <g id="imagebot_10">
     <path
       transform="translate(2.50022 -2.5) matrix(1 0 0 1 -204.054 -229.57)"
@@ -254,4 +254,4 @@
     cat2008-07-10T07:24:31https://openclipart.org/detail/17683/cartoon-cat-by-lemmlinglemmlinganimalbrowncartooncatcolourfunnyhow
     i did itmammal</metadata
   >
-</svg>
+</svg>`;
