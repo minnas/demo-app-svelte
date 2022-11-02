@@ -1,10 +1,13 @@
 <script lang="ts">
-  import { navigateTo } from 'svelte-router-spa'
+  import { navigateTo, Route } from 'svelte-router-spa'
   import { dummyButtons } from '@Api/api'
   import Button from '@Tools/AwesomeButton.svelte'
   import ThemeSwitch from '@Tools/ThemeSwitch.svelte'
 
+  let currentPage = '/'
+
   const goToMyPage = (page: string) => {
+    currentPage = page
     navigateTo(page || '/')
   }
 </script>
@@ -15,6 +18,7 @@
       label={btn.label}
       icon={btn.icon}
       btnClick={() => goToMyPage(btn.route)}
+      disabled={btn.route === currentPage}
     />
   {/each}
   <ThemeSwitch />
