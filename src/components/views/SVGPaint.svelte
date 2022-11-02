@@ -11,6 +11,7 @@
   import { svgStore } from '@Store/store'
   import { colors, ignoreTags, ignoreColors, clearColor } from '@Svg/settings'
   import Toast from '@Tools/AwesomeToast.svelte'
+  import { svgCat } from '@Svg/svg'
 
   let title = 'Colourize SVG'
   let toastVisible = false
@@ -37,21 +38,9 @@
   })
 
   const clear = () => {
-    const mySVG = document.querySelector('.svg-image > svg') as HTMLElement
-    mySVG.querySelectorAll('*').forEach((node) => {
-      const tagName = node.tagName || undefined
-      const attr = node.getAttribute('fill') || undefined
-      if (!tagName || !attr) {
-        return
-      }
-      if (
-        !ignoreTags.find((tag) => tag === tagName) &&
-        !ignoreColors.find((c) => c == node.getAttribute('fill'))
-      ) {
-        node.setAttribute('fill', clearColor)
-        mySvgChanged = true
-      }
-    })
+    $svgStore = svgCat as string
+    ;(document.querySelector('.svg-from-store') as HTMLElement).innerHTML =
+      $svgStore
   }
 
   const selectMe = (color: string) => {
