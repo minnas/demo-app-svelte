@@ -1,20 +1,28 @@
 <script lang="ts">
-  import { faCat, faRefresh } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faCat,
+    faRefresh,
+    faFloppyDisk,
+    faMagicWandSparkles,
+  } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
-  import Cat from '@Svg/cat.svelte'
   import Button from '@Tools/AwesomeButton.svelte'
+  import { svgStore } from '@Store/store'
+  import { colors, ignoreTags, ignoreColors, clearColor } from '@Svg/settings'
+  import Toast from '@Tools/AwesomeToast.svelte'
 
   let title = 'Colourize SVG'
-  const colors = ['red', 'green', 'blue', 'yellow', 'white']
-  const ignoreTags = ['svg', 'text']
-  const ignoreColors = ['rgb(0, 0, 0)', '#000000']
-  const clearColor = '#ffffff'
+  let toastVisible = false
 
   let currentColor = colors.at(0)
+  let mySvgChanged = false
 
   onMount(() => {
-    const mySVG = document.querySelector('.svg-image > svg') as HTMLElement
+    const mySVG = document.querySelector('.svg-from-store') as HTMLElement
+    mySVG.innerHTML = $svgStore
+
+    //const mySVG = document.querySelector('.svg-image > svg') as HTMLElement
     mySVG.style.cursor = 'pointer'
     mySVG.addEventListener('mouseup', (e: MouseEvent) => {
       const target = e.target as HTMLElement
@@ -25,6 +33,7 @@
           return
         }
         target.setAttribute('fill', currentColor)
+        mySvgChanged = true
       }
     })
   })
@@ -42,6 +51,7 @@
         !ignoreColors.find((c) => c == node.getAttribute('fill'))
       ) {
         node.setAttribute('fill', clearColor)
+        mySvgChanged = true
       }
     })
   }
@@ -49,13 +59,31 @@
   const selectMe = (color: string) => {
     currentColor = color
   }
+
+  const save = () => {
+    $svgStore = (document.querySelector('.svg-from-store') as HTMLElement)
+      .innerHTML
+    mySvgChanged = false
+    toastVisible = true
+    setTimeout(() => {
+      toastVisible = false
+    }, 600)
+  }
 </script>
 
 <div class="some-colorizing-example">
+  {#if toastVisible}
+    <Toast message={'Saved'} icon={faMagicWandSparkles} />
+  {/if}
   <div class="some-header">
     <Fa icon={faCat} />
     <h2>{title}</h2>
     <Button btnClick={() => clear()} icon={faRefresh} />
+    <Button
+      btnClick={() => save()}
+      icon={faFloppyDisk}
+      disabled={mySvgChanged === false}
+    />
   </div>
   <div class="some-content">
     <div class="color-set">
@@ -68,9 +96,7 @@
         />
       {/each}
     </div>
-    <div class="svg-image">
-      <Cat />
-    </div>
+    <div class="svg-from-store svg-image" />
   </div>
 </div>
 
