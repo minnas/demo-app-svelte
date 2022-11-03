@@ -4,6 +4,8 @@
     faRefresh,
     faFloppyDisk,
     faMagicWandSparkles,
+    faChevronUp,
+    faChevronDown,
   } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
@@ -18,6 +20,7 @@
 
   let currentColor = colors.at(0)
   let mySvgChanged = false
+  let titleVisible = true
 
   onMount(() => {
     const mySVG = document.querySelector('.svg-from-store') as HTMLElement
@@ -36,6 +39,36 @@
       }
     })
   })
+
+  const animate = () => {
+    const el = document.querySelector(
+      '.some-colorizing-example .some-header'
+    ) as HTMLElement
+    if (titleVisible) {
+      el.style.marginTop = '0px'
+      el.animate(
+        {
+          opacity: [0, 1],
+          marginTop: [`-${el.offsetHeight.toString()}px`, '0px'],
+        },
+        800
+      )
+    } else {
+      el.style.marginTop = `-${el.offsetHeight.toString()}px`
+      el.animate(
+        {
+          opacity: [1, 0],
+          marginTop: ['0', `-${el.offsetHeight.toString()}px`],
+        },
+        800
+      )
+    }
+  }
+
+  const toggle = () => {
+    titleVisible = !titleVisible
+    animate()
+  }
 
   const clear = () => {
     $svgStore = svgPicture as string
@@ -82,6 +115,10 @@
           on:mouseup={() => selectMe(color)}
         />
       {/each}
+      <Button
+        btnClick={() => toggle()}
+        icon={titleVisible === true ? faChevronUp : faChevronDown}
+      />
     </div>
     <div class="svg-from-store svg-image" />
   </div>
@@ -116,7 +153,7 @@
     flex-direction: column;
     grid-row-gap: 1rem;
     animation: fadeIn 2s ease-in-out;
-    width: 100%;
+    width: 60vw;
   }
   .color-set {
     display: flex;
