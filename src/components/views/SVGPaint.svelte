@@ -16,6 +16,7 @@
   import Toast from '@Tools/AwesomeToast.svelte'
   import { svgPicture } from '@Svg/svg'
   import AnOverlay from '@Tools/AnOverlay.svelte'
+  import { v4 as uuidv4 } from 'uuid'
 
   let title = 'Colourize SVG'
   let toastVisible = false
@@ -24,9 +25,11 @@
   let mySvgChanged = false
   let titleVisible = true
   let overlayVisible = false
+  const myHeaderId = uuidv4()
+  const mySvgId = uuidv4()
 
   onMount(() => {
-    const mySVG = document.querySelector('.svg-from-store') as HTMLElement
+    const mySVG = document.getElementById(mySvgId) as HTMLElement
     mySVG.innerHTML = $svgStore
     mySVG.style.cursor = 'pointer'
     mySVG.addEventListener('mouseup', (e: MouseEvent) => {
@@ -43,9 +46,7 @@
   })
 
   const animate = () => {
-    const el = document.querySelector(
-      '.some-colorizing-example .some-header'
-    ) as HTMLElement
+    const el = document.getElementById(myHeaderId) as HTMLElement
     if (titleVisible) {
       el.style.marginTop = '0px'
       el.animate(
@@ -74,8 +75,7 @@
 
   const clear = () => {
     $svgStore = svgPicture as string
-    ;(document.querySelector('.svg-from-store') as HTMLElement).innerHTML =
-      $svgStore
+    ;(document.getElementById(mySvgId) as HTMLElement).innerHTML = $svgStore
   }
 
   const selectMe = (color: string) => {
@@ -83,8 +83,7 @@
   }
 
   const save = () => {
-    $svgStore = (document.querySelector('.svg-from-store') as HTMLElement)
-      .innerHTML
+    $svgStore = (document.getElementById(mySvgId) as HTMLElement).innerHTML
     mySvgChanged = false
     toastVisible = true
     setTimeout(() => {
@@ -97,7 +96,7 @@
   {#if toastVisible}
     <Toast message={'Saved'} icon={faMagicWandSparkles} />
   {/if}
-  <div class="some-header">
+  <div class="some-header" id={myHeaderId}>
     <Fa icon={faCat} />
     <h2>{title}</h2>
     <Button btnClick={() => clear()} icon={faRefresh} />
@@ -123,7 +122,7 @@
         icon={titleVisible === true ? faChevronUp : faChevronDown}
       />
     </div>
-    <div class="svg-from-store svg-image" />
+    <div class="svg-from-store svg-image" id={mySvgId} />
   </div>
 </div>
 {#if overlayVisible}
