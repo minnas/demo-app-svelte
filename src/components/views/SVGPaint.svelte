@@ -11,7 +11,7 @@
   import { svgStore } from '@Store/store'
   import { colors, ignoreTags, ignoreColors, clearColor } from '@Svg/settings'
   import Toast from '@Tools/AwesomeToast.svelte'
-  import { svgCat } from '@Svg/svg'
+  import { svgPicture } from '@Svg/svg'
 
   let title = 'Colourize SVG'
   let toastVisible = false
@@ -26,7 +26,7 @@
     mySVG.addEventListener('mouseup', (e: MouseEvent) => {
       const target = e.target as HTMLElement
       const tagName = target.tagName
-
+      console.log(tagName)
       if (!ignoreTags.find((tag) => tag === tagName)) {
         if (ignoreColors.find((c) => c == target.getAttribute('fill'))) {
           return
@@ -38,7 +38,7 @@
   })
 
   const clear = () => {
-    $svgStore = svgCat as string
+    $svgStore = svgPicture as string
     ;(document.querySelector('.svg-from-store') as HTMLElement).innerHTML =
       $svgStore
   }
@@ -116,6 +116,7 @@
     flex-direction: column;
     grid-row-gap: 1rem;
     animation: fadeIn 2s ease-in-out;
+    width: 100%;
   }
   .color-set {
     display: flex;
