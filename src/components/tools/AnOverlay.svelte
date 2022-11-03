@@ -4,13 +4,28 @@
 
   export let hide = (): void => {}
   export let title = 'Some header'
+
+  const id = Date.now.toString()
+
+  const hideMe = () => {
+    document.getElementById(id).style.opacity = '0'
+    document.getElementById(id).animate(
+      {
+        opacity: [1, 0],
+      },
+      1500
+    )
+    setTimeout(() => {
+      hide()
+    }, 1500)
+  }
 </script>
 
-<div class="some-overlay">
+<div {id} class="some-overlay">
   <div class="overlay-inner">
     <div class="this-is-header">
       <h2>{title}</h2>
-      <Button icon={faTimes} btnClick={hide} />
+      <Button icon={faTimes} btnClick={hideMe} />
     </div>
     <div class="this-is-content">
       <slot name="content">This is content</slot>
@@ -63,6 +78,14 @@
     }
     to {
       opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 </style>
