@@ -6,6 +6,7 @@
     faMagicWandSparkles,
     faChevronUp,
     faChevronDown,
+    faInfo,
   } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
@@ -14,6 +15,7 @@
   import { colors, ignoreTags, ignoreColors, clearColor } from '@Svg/settings'
   import Toast from '@Tools/AwesomeToast.svelte'
   import { svgPicture } from '@Svg/svg'
+  import AnOverlay from '@Tools/AnOverlay.svelte'
 
   let title = 'Colourize SVG'
   let toastVisible = false
@@ -21,6 +23,7 @@
   let currentColor = colors.at(0)
   let mySvgChanged = false
   let titleVisible = true
+  let overlayVisible = false
 
   onMount(() => {
     const mySVG = document.querySelector('.svg-from-store') as HTMLElement
@@ -103,6 +106,7 @@
       icon={faFloppyDisk}
       disabled={mySvgChanged === false}
     />
+    <Button btnClick={() => (overlayVisible = !overlayVisible)} icon={faInfo} />
   </div>
   <div class="some-content">
     <div class="color-set">
@@ -122,6 +126,22 @@
     <div class="svg-from-store svg-image" />
   </div>
 </div>
+{#if overlayVisible}
+  <AnOverlay
+    title={'Instructions'}
+    hide={() => {
+      overlayVisible = !overlayVisible
+    }}
+  >
+    <span slot="content"
+      >Select first color and paint area by clicking. save by clicking floppy
+      icon button <span class="content-info-icon"
+        ><Fa icon={faFloppyDisk} /></span
+      >, reload by refresh
+      <span class="content-info-icon"><Fa icon={faRefresh} /></span> button</span
+    >
+  </AnOverlay>
+{/if}
 
 <style>
   .some-colorizing-example {
@@ -199,5 +219,10 @@
     to {
       opacity: 1;
     }
+  }
+  .content-info-icon {
+    color: var(--highlight-color);
+    display: inline-block;
+    margin: 0 1rem;
   }
 </style>
