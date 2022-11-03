@@ -29,7 +29,6 @@
     mySVG.addEventListener('mouseup', (e: MouseEvent) => {
       const target = e.target as HTMLElement
       const tagName = target.tagName
-      console.log(tagName)
       if (!ignoreTags.find((tag) => tag === tagName)) {
         if (ignoreColors.find((c) => c == target.getAttribute('fill'))) {
           return
