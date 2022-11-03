@@ -1,11 +1,12 @@
 <script lang="ts">
   import { faTimes } from '@fortawesome/free-solid-svg-icons'
   import Button from '@Tools/AwesomeButton.svelte'
+  import { v4 as uuidv4 } from 'uuid'
 
   export let hide = (): void => {}
   export let title = 'Some header'
 
-  const id = Date.now.toString()
+  const id = uuidv4()
 
   const hideMe = () => {
     document.getElementById(id).style.opacity = '0'
