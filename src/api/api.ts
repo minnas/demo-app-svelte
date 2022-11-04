@@ -5,11 +5,23 @@ import {
   faBug,
   faBookmark,
   faBookJournalWhills,
-  faPaintBrush
+  faPaintBrush,
+  faCube,
+  faRoute,
+  faMagicWandSparkles,
+  faCircleHalfStroke
 } from '@fortawesome/free-solid-svg-icons'
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills, faPaintBrush];
 const pages = ["/", "posts", "bookmarks", "todos", 'svg'];
+const infoIcons = [faCube, faRoute, faMagicWandSparkles, faCircleHalfStroke]
+const texts = ['custom components', 'router spa', 'custom animations', 'dark/light mode']
+export type feature = {
+  icon: IconProp,
+  text: string
+}
+export const features: feature[] = infoIcons.map((icon, index) => { return {icon, text: texts.at(index)} })
 
 export const dummyCards: Item[] = [...Array(20).keys()].map((index) => {
   return {

@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { navigateTo, Route } from 'svelte-router-spa'
+  import { navigateTo } from 'svelte-router-spa'
   import { dummyButtons } from '@Api/api'
   import Button from '@Tools/AwesomeButton.svelte'
   import ThemeSwitch from '@Tools/ThemeSwitch.svelte'
+  import { onMount } from 'svelte'
 
   let currentPage = '/'
 
@@ -10,6 +11,10 @@
     currentPage = page
     navigateTo(page || '/')
   }
+
+  onMount(() => {
+    currentPage = window.location.pathname?.replace('/', '') || '/'
+  })
 </script>
 
 <div class="some-footer">
