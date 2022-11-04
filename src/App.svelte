@@ -34,5 +34,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    scrollbar-color: var(--highlight-color) var(--shadow-color-6);
+    scrollbar-width: thin;
   }
 </style>
