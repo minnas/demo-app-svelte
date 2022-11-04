@@ -55,6 +55,8 @@
     display: flex;
     flex-direction: column;
     margin: 5rem;
+    max-height: 100%;
+    overflow-y: scroll;
   }
   .this-is-header,
   .this-is-content {

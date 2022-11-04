@@ -6,6 +6,7 @@
   export let label = 'no name'
   export let disabled = false
   export let onlyIcon = true
+  export let noBorder = false
 
   export let btnClick = () => {
     console.log('click me')
@@ -13,9 +14,10 @@
 
   $: btnIcon = icon || faCheck
   $: btnDisabled = disabled || false
+  $: btnClass = noBorder ? 'awesome-button no-border' : 'awesome-button'
 </script>
 
-<button on:click={btnClick} class="awesome-button" disabled={btnDisabled}>
+<button on:click={btnClick} class={btnClass} disabled={btnDisabled}>
   <Fa icon={btnIcon} />
   {#if label && !onlyIcon}
     <span class="some-label">{label}</span>
@@ -36,6 +38,10 @@
     background-color: transparent;
     color: var(--btn-color);
     font-size: 1.6rem;
+  }
+  .awesome-button.no-border {
+    border: none;
+    padding: 0;
   }
   .awesome-button:hover {
     background-color: var(--highlight-color-6);

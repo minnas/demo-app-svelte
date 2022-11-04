@@ -1,10 +1,21 @@
 <script lang="ts">
   import Fa from 'svelte-fa'
-  import { faSunPlantWilt } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faSunPlantWilt,
+    faLightbulb,
+  } from '@fortawesome/free-solid-svg-icons'
   import logo from '@Assets/svelte.svg'
   import ThemeSwitch from '@Tools/ThemeSwitch.svelte'
+  import AnOverlay from '@Tools/AnOverlay.svelte'
+  import Button from '@Tools/AwesomeButton.svelte'
+  import { features } from '@Api/api'
 
   export let title = 'Small Demo with Vite + Svelte'
+
+  let showInfo = false
+  const toggleInfoOverlay = () => {
+    showInfo = !showInfo
+  }
 </script>
 
 <div class="some-header">
@@ -13,8 +24,20 @@
   <div class="right-side">
     <img class="svelte-logo" src={logo} alt="" />
     <ThemeSwitch />
+    <Button btnClick={toggleInfoOverlay} icon={faLightbulb} noBorder={true} />
   </div>
 </div>
+{#if showInfo}
+  <AnOverlay title={'About the App'} hide={toggleInfoOverlay}>
+    <div class="info-block" slot="content">
+      <h2>This is small demo app which is done using Svelte + TS + Vite.</h2>
+      <span>Features:</span>
+      {#each features as feature}
+        <span><Fa icon={feature.icon} />{feature.text}</span>
+      {/each}
+    </div>
+  </AnOverlay>
+{/if}
 
 <style>
   .some-header {
@@ -44,5 +67,23 @@
     grid-column-gap: 1rem;
     justify-content: center;
     align-items: center;
+  }
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 2rem;
+    grid-row-gap: 0.5rem;
+    box-shadow: -1rem 0 0.4rem var(--highlight-color);
+    padding: 0 2.5rem 2.5rem;
+  }
+  .info-block h2 {
+    font-size: 2rem;
+  }
+  .info-block span {
+    display: flex;
+    flex-direction: row;
+    grid-column-gap: 1rem;
   }
 </style>

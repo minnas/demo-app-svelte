@@ -10,6 +10,7 @@ export type ButtonOptions = {
   icon: IconProp;
   label?: string;
   route?: string;
+  noBorder?: boolean;
 };
 
 export type RawItem = Omit<Item, "id"> & {};
