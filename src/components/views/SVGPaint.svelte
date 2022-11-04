@@ -171,7 +171,7 @@
     flex-direction: column;
     grid-row-gap: 1rem;
     animation: fadeIn 2s ease-in-out;
-    width: 60vw;
+    width: 45vw;
   }
   .color-set {
     display: flex;
