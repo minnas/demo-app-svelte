@@ -12,7 +12,7 @@
   import { onMount } from 'svelte'
   import Button from '@Tools/AwesomeButton.svelte'
   import { svgStore } from '@Store/store'
-  import { colors, ignoreTags, ignoreColors, clearColor } from '@Svg/settings'
+  import { colors, ignoreTags, ignoreColors } from '@Svg/settings'
   import Toast from '@Tools/AwesomeToast.svelte'
   import { svgPicture } from '@Svg/svg'
   import AnOverlay from '@Tools/AnOverlay.svelte'
@@ -207,6 +207,12 @@
   }
   .a-new-color.yellow {
     background-color: yellow;
+  }
+  .a-new-color.brown {
+    background-color: brown;
+  }
+  .a-new-color.violet {
+    background-color: violet;
   }
   .a-new-color.white {
     background-color: #ffffff;
