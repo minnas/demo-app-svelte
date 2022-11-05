@@ -17,8 +17,8 @@
   import { svgPicture } from '@Svg/svg'
   import AnOverlay from '@Tools/AnOverlay.svelte'
   import { v4 as uuidv4 } from 'uuid'
+  import { _ } from 'svelte-i18n'
 
-  let title = 'Colourize SVG'
   let toastVisible = false
 
   let currentColor = colors.at(0)
@@ -90,6 +90,8 @@
       toastVisible = false
     }, 600)
   }
+
+  const contentSlot = $_('svg-page-title')
 </script>
 
 <div class="some-colorizing-example">
@@ -98,7 +100,7 @@
   {/if}
   <div class="some-header" id={myHeaderId}>
     <Fa icon={faCat} />
-    <h2>{title}</h2>
+    <h2>{$_('svg-page-title')}</h2>
     <Button btnClick={() => clear()} icon={faRefresh} />
     <Button
       btnClick={() => save()}
@@ -133,12 +135,13 @@
     }}
   >
     <span slot="content"
-      >Select first color and paint area by clicking. save by clicking floppy
-      icon button <span class="content-info-icon"
-        ><Fa icon={faFloppyDisk} /></span
-      >, reload by refresh
-      <span class="content-info-icon"><Fa icon={faRefresh} /></span> button</span
-    >
+      >{$_('svg-page-info-start')}
+      <span class="content-info-icon"><Fa icon={faFloppyDisk} /></span>, {$_(
+        'svg-page-info-middle'
+      )}
+      <span class="content-info-icon"><Fa icon={faRefresh} /></span>
+      {$_('svg-page-info-end')}
+    </span>
   </AnOverlay>
 {/if}
 

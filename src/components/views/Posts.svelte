@@ -6,6 +6,7 @@
   } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
+  import { _ } from 'svelte-i18n'
   import { search } from '@Api/api'
   import type { Bookmark, Item, RawItem } from '@Types/type'
   import Button from '@Tools/AwesomeButton.svelte'
@@ -15,7 +16,6 @@
   import Toast from '@Tools/AwesomeToast.svelte'
   import Spinner from '@Tools/AwesomeSpinner.svelte'
 
-  export let title = 'Fake Todos'
   export let animate = true
 
   let toastVisible = false
@@ -53,11 +53,11 @@
 
 <div class="fake-posts">
   {#if toastVisible}
-    <Toast message={'Added to Bookmarks'} />
+    <Toast message={$_('post-added-msg')} />
   {/if}
   <div class={titleClass}>
     <Fa icon={faEnvelopesBulk} />
-    <h2>{title}</h2>
+    <h2>{$_('posts-page-title')}</h2>
   </div>
   <div class="posts-in-the-list">
     {#if posts.length < 1}

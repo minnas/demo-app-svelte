@@ -1,0 +1,19 @@
+{
+    "app-title": "Demo appis Vite + Svelte",
+    "app-info-title": "Demo appis on tehty käyttäen Svelte + TS + Vite komboa",
+    "app-info-list": "Ominaisuudet:",
+    "svg-page-info-start": "Valitse ensin väri ja maalaa alue klikkaamalla. Tallenna muutokset Floppy Disk buttonilla",
+    "svg-page-info-middle": "resetoi kuva",
+    "svg-page-info-end": "painikkeella",
+    "svg-page-title": "Väritä SVG",
+    "cards-page-title": "Joitakin info-kortteja",
+    "posts-page-title": "Feikki postauksia",
+    "post-added-msg": "Lisätty kirjanmerkkeihin",
+    "bookmarks-page-title": "Kirjanmerkit",
+    "bookmark-removed-msg": "Poistettu",
+    "todos-page-title": "Tehtävät",
+    "todos-empty-placeholder": "Ei lisättyjä tehtäviä",
+    "todos-btn-add": "Lisää todo",
+    "todos-textarea-text": "kirjoita uusi tehtävä, tallenna Enterillä. Sulje painamalla Esc tai ruksia",
+    "placeholder-title-default": "ei huolia"
+}

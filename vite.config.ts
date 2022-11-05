@@ -13,7 +13,8 @@ export default defineConfig({
       "@Types": path.resolve(__dirname, "./src/types"),
       "@Store": path.resolve(__dirname, "./src/store"),
       "@Assets": path.resolve(__dirname, "./src/assets"),
-      "@Svg": path.resolve(__dirname, "./src/components/svg")
+      "@Svg": path.resolve(__dirname, "./src/components/svg"),
+      "@Locale": path.resolve(__dirname, "./src/locale")
     },
   },
 });
