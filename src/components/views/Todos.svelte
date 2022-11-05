@@ -11,8 +11,7 @@
   import { v4 as uuidv4 } from 'uuid'
   import type { Todo } from '@Types/type'
   import PlaceHolder from '@Tools/PlaceHolder.svelte'
-
-  export let title = 'My Todos'
+  import { _ } from 'svelte-i18n'
 
   let todo = ''
   let addTodoVisible = false
@@ -38,7 +37,7 @@
 <div class="awesome-todos">
   <div class="some-header">
     <Fa icon={faStickyNote} />
-    <h2>{title}</h2>
+    <h2>{$_('todos-page-title')}</h2>
   </div>
   <div class="a-new-todo">
     {#if !addTodoVisible}
@@ -55,7 +54,7 @@
         bind:value={todo}
         on:keydown={saveTodo}
         id="my-todo"
-        placeholder="write new todo and press enter. Close by Esc or times btn"
+        placeholder={$_('todos-textarea-text')}
       />
       <Button
         icon={faTimes}
@@ -65,7 +64,7 @@
   </div>
   <div class="the-todos-are-here">
     {#if $todosStore.length < 1}
-      <PlaceHolder text="No Todos in The list" />
+      <PlaceHolder text={$_('todos-empty-placeholder')} />
     {/if}
     {#each $todosStore as item}
       <div class="one-todo-item">

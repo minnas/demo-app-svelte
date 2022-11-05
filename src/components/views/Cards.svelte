@@ -6,8 +6,8 @@
   import { onMount } from 'svelte'
   import type { Item } from '@Types/type'
   import Spinner from '@Tools/AwesomeSpinner.svelte'
+  import { _ } from 'svelte-i18n'
 
-  let title = 'Some random cards'
   $: cards = [] as Item[]
 
   onMount(() => {
@@ -24,7 +24,7 @@
 <div class="fake-cards">
   <div class="some-header">
     <Fa icon={faIdCardClip} />
-    <h2>{title}</h2>
+    <h2>{$_('cards-page-title')}</h2>
   </div>
   <div class="cards-in-the-list">
     {#if cards.length < 1}

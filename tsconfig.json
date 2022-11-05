@@ -23,6 +23,7 @@
       "@Store/*": ["./src/store/*"],
       "@Assets/*": ["./src/assets/*"],
       "@Svg/*": ["./src/components/svg/*"],
+      "@Locale/*": ["./src/locale/*"],
     }
 
   },

@@ -11,8 +11,8 @@
   import type { Bookmark } from '@Types/type'
   import Toast from '@Tools/AwesomeToast.svelte'
   import PlaceHolder from '@Tools/PlaceHolder.svelte'
+  import { _ } from 'svelte-i18n'
 
-  export let title = 'My Bookmarks'
   let toastVisible = false
 
   const remove = (bookmark: Bookmark) => {
@@ -31,15 +31,15 @@
 
 <div class="my-bookmarks">
   {#if toastVisible}
-    <Toast message={'Removed'} icon={faBugSlash} />
+    <Toast message={$_('bookmark-removed-msg')} icon={faBugSlash} />
   {/if}
   <div class="some-header">
     <Fa icon={faBookJournalWhills} />
-    <h2>{title}</h2>
+    <h2>{$_('bookmarks-page-title')}</h2>
   </div>
   <div class="bookmarks-in-the-list">
     {#if $bookmarkStore.length < 1}
-      <PlaceHolder />
+      <PlaceHolder text={$_('placeholder-title-default')} />
     {/if}
     {#each $bookmarkStore as bookmark}
       <div class="bookmark-item">

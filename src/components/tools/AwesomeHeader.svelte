@@ -9,8 +9,7 @@
   import AnOverlay from '@Tools/AnOverlay.svelte'
   import Button from '@Tools/AwesomeButton.svelte'
   import { features } from '@Api/api'
-
-  export let title = 'Small Demo with Vite + Svelte'
+  import { _ } from 'svelte-i18n'
 
   let showInfo = false
   const toggleInfoOverlay = () => {
@@ -20,7 +19,7 @@
 
 <div class="some-header">
   <Fa icon={faSunPlantWilt} />
-  <h1>{title}</h1>
+  <h1>{$_('app-title')}</h1>
   <div class="right-side">
     <img class="svelte-logo" src={logo} alt="" />
     <ThemeSwitch />
@@ -30,8 +29,8 @@
 {#if showInfo}
   <AnOverlay title={'About the App'} hide={toggleInfoOverlay}>
     <div class="info-block" slot="content">
-      <h2>This is small demo app which is done using Svelte + TS + Vite.</h2>
-      <span>Features:</span>
+      <h2>{$_('app-info-title')}</h2>
+      <span>{$_('app-info-list')}</span>
       {#each features as feature}
         <span><Fa icon={feature.icon} />{feature.text}</span>
       {/each}
