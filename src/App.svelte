@@ -62,6 +62,9 @@
     flex-direction: row;
     justify-content: center;
   }
+  .awesome-footer {
+    margin-top: auto;
+  }
   .awesome-content {
     overflow-y: scroll;
     display: flex;
