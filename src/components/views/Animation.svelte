@@ -66,7 +66,6 @@
         <animateMotion
           dur={speedInSeconds2}
           repeatCount="indefinite"
-          path="M 50 0 21 90 98 35 2 35 79 90 50 0"
           rotate="auto-reverse"
         >
           <mpath xlink:href="#circlePath" />
