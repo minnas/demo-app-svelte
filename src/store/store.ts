@@ -1,6 +1,5 @@
 import type { Bookmark, Todo } from '@Types/type'
 import { writable } from 'svelte/store'
-import { svgCat } from '@Svg/svg'
 import { svgPicture } from '@Svg/svg'
 
 export const bookmarkStore = writable([] as Bookmark[])

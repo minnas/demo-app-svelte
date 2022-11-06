@@ -180,6 +180,8 @@
     justify-content: center;
     align-items: center;
     grid-column-gap: 1.5rem;
+    flex-wrap: wrap;
+    grid-row-gap: 1rem;
   }
   .a-new-color {
     border: 3px solid transparent;
