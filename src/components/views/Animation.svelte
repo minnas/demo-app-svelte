@@ -34,19 +34,27 @@
       on:change={changeSpeed}
     />
   </div>
-  <svg class="svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40,80 C5,-80 200,120 200,80 C160-80 40,120 40,80 z" />
-    <circle r="6" class="circle">
-      <animateMotion
-        dur={speedInSeconds}
-        repeatCount="indefinite"
-        path="M40,80 C5,-80 200,120 200,80 C160-80 40,120 40,80 z"
-      />
-    </circle>
-  </svg>
+  <div class="some-svg">
+    <svg viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,0 21,90 98,35 2,35 79,90" />
+      <circle r="3" class="second-circle">
+        <animateMotion
+          dur={speedInSeconds}
+          repeatCount="indefinite"
+          path="M 50 0 21 90 98 35 2 35 79 90 50 0"
+        />
+      </circle>
+    </svg>
+  </div>
 </div>
 
 <style>
+  .some-svg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
   .canvas {
     width: 100%;
     align-items: center;
@@ -55,12 +63,16 @@
     justify-content: center;
     padding-top: 2rem;
   }
-  path {
-    stroke: var(--text-color);
+  polygon {
+    stroke: var(--highlight-color);
     fill: none;
   }
-  .circle {
-    fill: var(--highlight-color);
+  svg {
+    margin-top: 2rem;
+    max-width: 30rem;
+  }
+  .second-circle {
+    fill: var(--text-color);
   }
   .some-animation-tools {
     color: var(--text-color);
