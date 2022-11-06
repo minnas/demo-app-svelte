@@ -9,6 +9,7 @@
   import { _ } from 'svelte-i18n'
 
   $: cards = [] as Item[]
+  $: title = $_('cards-page-title')
 
   onMount(() => {
     search()
@@ -24,7 +25,7 @@
 <div class="fake-cards">
   <div class="some-header">
     <Fa icon={faIdCardClip} />
-    <h2>{$_('cards-page-title')}</h2>
+    <h2>{title}</h2>
   </div>
   <div class="cards-in-the-list">
     {#if cards.length < 1}
