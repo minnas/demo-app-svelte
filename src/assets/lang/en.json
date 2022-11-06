@@ -16,5 +16,6 @@
     "todos-empty-placeholder": "No Todos in The list",
     "todos-btn-add": "Add",
     "todos-textarea-text": "write new todo and press enter. Close by Esc or times btn",
-    "placeholder-title-default": "no worries"
+    "placeholder-title-default": "no worries",
+    "animation-page-speed-label": "Select speed"
 }

@@ -16,5 +16,6 @@
     "todos-empty-placeholder": "Ei lisättyjä tehtäviä",
     "todos-btn-add": "Lisää",
     "todos-textarea-text": "kirjoita uusi tehtävä, tallenna Enterillä. Sulje painamalla Esc tai ruksia",
-    "placeholder-title-default": "ei huolia"
+    "placeholder-title-default": "ei huolia",
+    "animation-page-speed-label": "Valitse nopeus"    
 }
