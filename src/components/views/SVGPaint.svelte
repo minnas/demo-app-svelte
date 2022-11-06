@@ -19,6 +19,7 @@
     slideUp,
     slideDown,
     fillColor,
+    fadeOutIn,
   } from '@Svg/utils'
   import Toast from '@Tools/AwesomeToast.svelte'
   import { svgPicture } from '@Svg/svg'
@@ -72,7 +73,9 @@
 
   const clear = () => {
     $svgStore = svgPicture as string
-    ;(document.getElementById(mySvgId) as HTMLElement).innerHTML = $svgStore
+    const svg = document.getElementById(mySvgId) as HTMLElement
+    svg.innerHTML = $svgStore
+    svg.animate(fadeOutIn(), 600)
   }
 
   const selectMe = (color: string) => {
@@ -87,8 +90,6 @@
       toastVisible = false
     }, 600)
   }
-
-  const contentSlot = $_('svg-page-title')
 </script>
 
 <div class="some-colorizing-example">
@@ -126,7 +127,7 @@
 </div>
 {#if overlayVisible}
   <AnOverlay
-    title={'Instructions'}
+    title={$_('svg-info-title')}
     hide={() => {
       overlayVisible = !overlayVisible
     }}

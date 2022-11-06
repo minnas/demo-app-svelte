@@ -15,6 +15,12 @@
 
   let todo = ''
   let addTodoVisible = false
+  $: texts = {
+    title: $_('todos-page-title'),
+    add: $_('todos-btn-add'),
+    placeholder: $_('todos-textarea-text'),
+    empty: $_('todos-empty-placeholder'),
+  }
 
   const saveTodo = (e) => {
     if (e.key === 'Escape') {
@@ -37,13 +43,13 @@
 <div class="awesome-todos">
   <div class="some-header">
     <Fa icon={faStickyNote} />
-    <h2>{$_('todos-page-title')}</h2>
+    <h2>{texts.title}</h2>
   </div>
   <div class="a-new-todo">
     {#if !addTodoVisible}
       <Button
         icon={faPlus}
-        label="Add Todo"
+        label={texts.add}
         onlyIcon={false}
         btnClick={() => (addTodoVisible = !addTodoVisible)}
       />
@@ -54,7 +60,7 @@
         bind:value={todo}
         on:keydown={saveTodo}
         id="my-todo"
-        placeholder={$_('todos-textarea-text')}
+        placeholder={texts.placeholder}
       />
       <Button
         icon={faTimes}
@@ -64,7 +70,7 @@
   </div>
   <div class="the-todos-are-here">
     {#if $todosStore.length < 1}
-      <PlaceHolder text={$_('todos-empty-placeholder')} />
+      <PlaceHolder text={texts.empty} />
     {/if}
     {#each $todosStore as item}
       <div class="one-todo-item">

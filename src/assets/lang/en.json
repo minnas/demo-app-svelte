@@ -6,6 +6,7 @@
     "svg-page-info-middle": "reset svg by refresh",
     "svg-page-info-end": "button",
     "svg-page-title": "Colourize SVG",
+    "svg-info-title": "Instructions",    
     "cards-page-title": "Some random cards",
     "posts-page-title": "Fake Posts",
     "post-added-msg": "Added to Bookmarks",
@@ -13,7 +14,7 @@
     "bookmark-removed-msg": "Removed",
     "todos-page-title": "My Todos",
     "todos-empty-placeholder": "No Todos in The list",
-    "todos-btn-add": "Add Todo",
+    "todos-btn-add": "Add",
     "todos-textarea-text": "write new todo and press enter. Close by Esc or times btn",
     "placeholder-title-default": "no worries"
 }
