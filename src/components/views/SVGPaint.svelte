@@ -12,7 +12,14 @@
   import { onMount } from 'svelte'
   import Button from '@Tools/AwesomeButton.svelte'
   import { svgStore } from '@Store/store'
-  import { colors, ignoreTags, ignoreColors } from '@Svg/settings'
+  import {
+    colors,
+    ignoreTags,
+    ignoreColorRegex,
+    slideUp,
+    slideDown,
+    fillColor,
+  } from '@Svg/utils'
   import Toast from '@Tools/AwesomeToast.svelte'
   import { svgPicture } from '@Svg/svg'
   import AnOverlay from '@Tools/AnOverlay.svelte'
@@ -34,12 +41,14 @@
     mySVG.style.cursor = 'pointer'
     mySVG.addEventListener('mouseup', (e: MouseEvent) => {
       const target = e.target as HTMLElement
+      const oldColor = target.getAttribute('fill') || '#fff'
       const tagName = target.tagName
       if (!ignoreTags.find((tag) => tag === tagName)) {
-        if (ignoreColors.find((c) => c == target.getAttribute('fill'))) {
+        if (ignoreColorRegex.test(oldColor)) {
           return
         }
         target.setAttribute('fill', currentColor)
+        target.animate(fillColor(oldColor, currentColor), 600)
         mySvgChanged = true
       }
     })
@@ -49,22 +58,10 @@
     const el = document.getElementById(myHeaderId) as HTMLElement
     if (titleVisible) {
       el.style.marginTop = '0px'
-      el.animate(
-        {
-          opacity: [0, 1],
-          marginTop: [`-${el.offsetHeight.toString()}px`, '0px'],
-        },
-        800
-      )
+      el.animate(slideDown(el.offsetHeight), 800)
     } else {
       el.style.marginTop = `-${el.offsetHeight.toString()}px`
-      el.animate(
-        {
-          opacity: [1, 0],
-          marginTop: ['0', `-${el.offsetHeight.toString()}px`],
-        },
-        800
-      )
+      el.animate(slideUp(el.offsetHeight), 800)
     }
   }
 
