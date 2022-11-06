@@ -9,12 +9,13 @@ import {
   faCube,
   faRoute,
   faMagicWandSparkles,
-  faCircleHalfStroke
+  faCircleHalfStroke,
+  faMagic
 } from '@fortawesome/free-solid-svg-icons'
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills, faPaintBrush];
-const pages = ["/", "posts", "bookmarks", "todos", 'svg'];
+const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills, faPaintBrush, faMagic];
+const pages = ["/", "posts", "bookmarks", "todos", 'svg', 'animation'];
 const infoIcons = [faCube, faRoute, faMagicWandSparkles, faCircleHalfStroke]
 const texts = ['custom components', 'router spa', 'custom animations', 'dark/light mode']
 export type feature = {
