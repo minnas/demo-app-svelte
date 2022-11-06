@@ -10,6 +10,7 @@
   }
   let circleSpeed = 10
   $: speedInSeconds = `${circleSpeed}s`
+  $: speedInSeconds2 = `${circleSpeed * 0.5}s`
 
   const changeSpeed = () => {
     console.log('change speed')
@@ -44,6 +45,33 @@
           path="M 50 0 21 90 98 35 2 35 79 90 50 0"
         />
       </circle>
+    </svg>
+  </div>
+  <div class="some-svg test-svgs">
+    <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <circle class="circle-test-1" cx="100" cy="100" r="75" />
+    </svg>
+    <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path
+        id="circlePath"
+        class="circle-test-2"
+        d="
+      M 100, 100
+      m -75, 0
+      a 75,75 0 1,0 150,0
+      a 75,75 0 1,0 -150,0
+      "
+      />
+      <rect width="20" height="20" class="test-rectangle">
+        <animateMotion
+          dur={speedInSeconds2}
+          repeatCount="indefinite"
+          path="M 50 0 21 90 98 35 2 35 79 90 50 0"
+          rotate="auto-reverse"
+        >
+          <mpath xlink:href="#circlePath" />
+        </animateMotion>
+      </rect>
     </svg>
   </div>
 </div>
@@ -87,5 +115,29 @@
     width: 80%;
     max-width: 500px;
     cursor: pointer;
+  }
+  .circle-test-1 {
+    fill: var(--highlight-color);
+    fill-opacity: 0.4;
+    stroke: var(--text-color);
+    stroke-width: 3px;
+    stroke-opacity: 0.8;
+  }
+  .circle-test-2 {
+    fill: none;
+    stroke: var(--highlight-color);
+  }
+  .test-svgs {
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .test-svgs svg {
+    max-width: 300px;
+  }
+  .test-rectangle {
+    fill: none;
+    stroke: var(--text-color);
+    stroke-width: 3px;
+    stroke-opacity: 0.8;
   }
 </style>
