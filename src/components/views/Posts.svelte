@@ -3,6 +3,7 @@
     faEnvelopesBulk,
     faEnvelopeOpenText,
     faBookBookmark,
+    faMagnifyingGlass,
   } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa'
   import { onMount } from 'svelte'
@@ -19,9 +20,17 @@
   export let animate = true
 
   let toastVisible = false
-
-  $: posts = [] as Item[]
+  let filterVisible = false
+  let posts = [] as Item[]
+  let key: string = ''
   $: titleClass = animate ? 'some-header animate' : 'some-header'
+  $: filteredPosts =
+    key && key.trim().length > 0
+      ? posts.filter((post: Item) => post.title.search(key) > -1)
+      : posts
+  $: filterToggleClass = filterVisible
+    ? 'the-post-filter-toggle filter-visible'
+    : 'the-post-filter-toggle'
 
   onMount(() => {
     search(ApiType.TODOS)
@@ -58,12 +67,24 @@
   <div class={titleClass}>
     <Fa icon={faEnvelopesBulk} />
     <h2>{$_('posts-page-title')}</h2>
+    <button
+      class={filterToggleClass}
+      on:click={() => (filterVisible = !filterVisible)}
+    >
+      <Fa icon={faMagnifyingGlass} />
+    </button>
   </div>
+  {#if posts.length > 1 && filterVisible}
+    <div class="a-post-filter">
+      <label for="a-post-filter-key">{$_('post-filter-label')}</label>
+      <input type="text" bind:value={key} name="a-post-filter-key" />
+    </div>
+  {/if}
   <div class="posts-in-the-list">
     {#if posts.length < 1}
       <Spinner />
     {/if}
-    {#each posts as post}
+    {#each filteredPosts as post}
       <div class="post-item">
         <Fa icon={faEnvelopeOpenText} />
         <div>{post.title}</div>
@@ -124,5 +145,48 @@
   }
   .posts-in-the-list {
     padding-top: 2rem;
+  }
+  .a-post-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 2rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-bottom: 2px dashed var(--highlight-color);
+    animation: fadeIn 1s ease;
+  }
+  .a-post-filter label {
+    font-style: italic;
+  }
+  .a-post-filter input {
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+    padding: 0.25rem 1rem;
+    font-size: 1.6rem;
+  }
+  .the-post-filter-toggle {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .the-post-filter-toggle:hover {
+    color: var(--highlight-color-6);
+  }
+  .the-post-filter-toggle.filter-visible {
+    color: var(--highlight-color);
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 8rem;
+    }
   }
 </style>
