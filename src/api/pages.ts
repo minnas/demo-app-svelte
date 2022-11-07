@@ -16,8 +16,8 @@ export type Page = {
 
 export const pages:Page[] = [
   { name: '/', component:Cards, icon: faRainbow },
-  { name: 'bookmarks', component: Bookmarks, icon: faBug },
-  { name: 'posts', component: Posts, icon: faBookmark },
+  { name: 'posts', component: Posts, icon: faBug },
+  { name: 'bookmarks', component: Bookmarks, icon: faBookmark },
   { name: 'todos', component:Todos, icon: faBookJournalWhills },
   { name: 'svg', component:SVGPaint, icon: faPaintBrush },
   { name: 'animation', component:Animation, icon: faMagic },
