@@ -1,21 +1,14 @@
 import type { Item } from "../types/type";
 import type { ButtonOptions } from "../types/type";
 import {
-  faRainbow,
-  faBug,
-  faBookmark,
-  faBookJournalWhills,
-  faPaintBrush,
   faCube,
   faRoute,
   faMagicWandSparkles,
   faCircleHalfStroke,
-  faMagic
 } from '@fortawesome/free-solid-svg-icons'
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { pages, type Page } from "./pages";
 
-const icons = [faRainbow, faBug, faBookmark, faBookJournalWhills, faPaintBrush, faMagic];
-const pages = ["/", "posts", "bookmarks", "todos", 'svg', 'animation'];
 const infoIcons = [faCube, faRoute, faMagicWandSparkles, faCircleHalfStroke]
 const texts = ['custom components', 'router spa', 'custom animations', 'dark/light mode']
 export type feature = {
@@ -34,10 +27,10 @@ export const dummyCards: Item[] = [...Array(20).keys()].map((index) => {
   } as Item;
 });
 
-export const dummyButtons: ButtonOptions[] = pages.map((page:string, index) => {
+export const dummyButtons: ButtonOptions[] = pages.map((page:Page) => {
   return {
-    icon: icons.at(index),
-    route: page
+    icon:page.icon,
+    route: page.name
   } as ButtonOptions;
 });
 const randomApi = "https://jsonplaceholder.typicode.com";
