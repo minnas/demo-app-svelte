@@ -103,6 +103,7 @@
     margin: auto;
     font-size: 2.5rem;
     flex: 1;
+    color: var(--text-color);
   }
   .a-new-todo {
     display: flex;

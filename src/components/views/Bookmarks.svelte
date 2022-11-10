@@ -72,6 +72,7 @@
     margin: auto;
     font-size: 2.5rem;
     flex: 1;
+    color: var(--text-color);
   }
   .some-header h2 {
     margin: auto;
