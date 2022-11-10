@@ -20,8 +20,7 @@
           <span>No title</span>
         </slot>
       </span>
-    {/if}
-    {#if show}
+    {:else}
       <span class="body-content">
         <slot name="body">
           <span>No body</span>

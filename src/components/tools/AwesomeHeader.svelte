@@ -49,6 +49,7 @@
     margin: auto;
     width: 100%;
     font-size: 2.5rem;
+    color: var(--text-color);
   }
   .some-header h1 {
     margin: auto;
