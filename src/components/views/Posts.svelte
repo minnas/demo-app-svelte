@@ -108,6 +108,7 @@
     grid-row-gap: 1rem;
     justify-content: center;
     align-items: center;
+    color: var(--text-color);
   }
   .some-header {
     display: flex;
@@ -119,6 +120,7 @@
     margin: auto;
     font-size: 2.5rem;
     flex: 1;
+    color: var(--text-color);
   }
   .some-header.animate {
     animation: colorize 5s ease-in-out;
@@ -135,6 +137,7 @@
     margin: auto;
     padding: 0;
     font-size: 2rem;
+    color: var(--text-color);
   }
   .post-item {
     display: flex;
