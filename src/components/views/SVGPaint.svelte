@@ -94,7 +94,7 @@
 
 <div class="some-colorizing-example">
   {#if toastVisible}
-    <Toast message={'Saved'} icon={faMagicWandSparkles} />
+    <Toast message={$_('svg-saved-msg')} icon={faMagicWandSparkles} />
   {/if}
   <div class="some-header" id={myHeaderId}>
     <Fa icon={faCat} />

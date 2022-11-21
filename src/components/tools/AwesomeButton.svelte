@@ -8,9 +8,7 @@
   export let onlyIcon = true
   export let noBorder = false
 
-  export let btnClick = () => {
-    console.log('click me')
-  }
+  export let btnClick = () => {}
 
   $: btnIcon = icon || faCheck
   $: btnDisabled = disabled || false
