@@ -7,6 +7,7 @@
     "svg-page-info-end": "painikkeella",
     "svg-page-title": "Väritä SVG",
     "svg-info-title": "Ohjeet",
+    "svg-saved-msg": "Tallessa",    
     "cards-page-title": "Info kortteja",
     "posts-page-title": "Feikki postauksia",
     "post-added-msg": "Lisätty kirjanmerkkeihin",
@@ -18,5 +19,5 @@
     "todos-btn-add": "Lisää",
     "todos-textarea-text": "kirjoita uusi tehtävä, tallenna Enterillä. Sulje painamalla Esc tai ruksia",
     "placeholder-title-default": "ei huolia",
-    "animation-page-speed-label": "Valitse nopeus"    
+    "animation-page-speed-label": "Valitse nopeus"
 }

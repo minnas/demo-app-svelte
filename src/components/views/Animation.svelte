@@ -13,7 +13,6 @@
   $: speedInSeconds2 = `${circleSpeed * 0.5}s`
 
   const changeSpeed = () => {
-    console.log('change speed')
     const value = (document.getElementById(id) as HTMLInputElement).value
     try {
       circleSpeed = parseInt(value)
