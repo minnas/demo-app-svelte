@@ -119,11 +119,14 @@
     <Fa icon={faCat} />
     <h2>{$_('svg-page-title')}</h2>
     <Button btnClick={() => clear()} icon={faRefresh} />
-    <Button btnClick={() => save()} icon={faFloppyDisk} />
+    <Button
+      btnClick={() => save()}
+      icon={faFloppyDisk}
+      disabled={mySvgChanged === false}
+    />
     <Button
       btnClick={() => upload()}
       icon={faUpload}
-      disabled={mySvgChanged === false}
     />
     <Button btnClick={() => (overlayVisible = !overlayVisible)} icon={faInfo} />
   </div>
