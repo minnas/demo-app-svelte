@@ -3,6 +3,7 @@
     faCat,
     faRefresh,
     faFloppyDisk,
+    faUpload,
     faMagicWandSparkles,
     faChevronUp,
     faChevronDown,
@@ -28,7 +29,7 @@
   import { _ } from 'svelte-i18n'
 
   let toastVisible = false
-
+  $: toasMsg = $_('svg-saved-msg')
   let currentColor = colors.at(0)
   let mySvgChanged = false
   let titleVisible = true
@@ -85,16 +86,34 @@
   const save = () => {
     $svgStore = (document.getElementById(mySvgId) as HTMLElement).innerHTML
     mySvgChanged = false
+    toasMsg = $_('svg-saved-msg')
     toastVisible = true
     setTimeout(() => {
       toastVisible = false
     }, 600)
   }
+
+  const upload = () => {
+    const svgSource = (document.getElementById(mySvgId) as HTMLElement)
+      .innerHTML
+    const blob = new Blob([svgSource], { type: 'image/svg+xml;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `dog-${uuidv4()}.svg`
+    toasMsg = $_('svg-uploaded-msg')
+    toastVisible = true
+    setTimeout(() => {
+      toastVisible = false
+    }, 600)
+    link.click()
+    link.remove()
+  }
 </script>
 
 <div class="some-colorizing-example">
   {#if toastVisible}
-    <Toast message={$_('svg-saved-msg')} icon={faMagicWandSparkles} />
+    <Toast message={toasMsg} icon={faMagicWandSparkles} />
   {/if}
   <div class="some-header" id={myHeaderId}>
     <Fa icon={faCat} />
@@ -103,6 +122,11 @@
     <Button
       btnClick={() => save()}
       icon={faFloppyDisk}
+      disabled={mySvgChanged === false}
+    />
+    <Button
+      btnClick={() => upload()}
+      icon={faUpload}
       disabled={mySvgChanged === false}
     />
     <Button btnClick={() => (overlayVisible = !overlayVisible)} icon={faInfo} />
