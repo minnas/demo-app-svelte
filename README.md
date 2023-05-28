@@ -6,7 +6,6 @@
 # Demo App Svelte
 
 This is a Small app done with Svelte + Typescript + Vite.
-The app ave some dummy component for testing some features.
 
 To start, run these commands
 
