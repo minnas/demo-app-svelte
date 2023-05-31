@@ -1,3 +1,2 @@
 rm -R node_modules
-yarn
-yarn run dev
+yarn && yarn run dev
