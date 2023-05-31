@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    grid-column-gap: 2rem;
+    column-gap: 2rem;
     padding: 1rem;
     border-bottom: 2px dashed var(--highlight-color-6);
     margin: auto;
@@ -64,7 +64,7 @@
   .right-side {
     display: flex;
     flex-direction: row;
-    grid-column-gap: 1rem;
+    column-gap: 1rem;
     justify-content: center;
     align-items: center;
   }
@@ -74,7 +74,7 @@
     justify-content: center;
     align-items: flex-start;
     font-size: 2rem;
-    grid-row-gap: 0.5rem;
+    row-gap: 0.5rem;
     box-shadow: -1rem 0 0.4rem var(--highlight-color);
     padding: 0 2.5rem 2.5rem;
   }
@@ -84,6 +84,6 @@
   .info-block span {
     display: flex;
     flex-direction: row;
-    grid-column-gap: 1rem;
+    column-gap: 1rem;
   }
 </style>

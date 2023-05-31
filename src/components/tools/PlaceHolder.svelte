@@ -16,7 +16,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    grid-column-gap: 2rem;
+    column-gap: 2rem;
     padding: 2rem;
     font-size: 2.5rem;
     color: var(--highlight-color);

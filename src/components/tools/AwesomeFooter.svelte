@@ -34,8 +34,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 1rem;
     flex-wrap: wrap;
     padding: 1rem;
     border-top: 2px dashed var(--highlight-color-6);

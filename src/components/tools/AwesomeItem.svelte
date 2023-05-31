@@ -49,7 +49,7 @@
     align-items: center;
     padding: 1rem;
     width: 100%;
-    grid-column-gap: 2rem;
+    column-gap: 2rem;
     border-bottom: 2px dashed var(--highlight-color);
     font-size: 2.5rem;
     line-height: 2.5rem;
