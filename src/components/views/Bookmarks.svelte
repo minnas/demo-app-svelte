@@ -58,7 +58,7 @@
   .bookmarks-in-the-list {
     display: flex;
     flex-direction: column;
-    grid-row-gap: 1rem;
+    row-gap: 1rem;
     justify-content: center;
     align-items: center;
   }
@@ -66,7 +66,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    grid-column-gap: 2rem;
+    column-gap: 2rem;
     padding: 1rem;
     border-bottom: 2px dashed var(--highlight-color-6);
     margin: auto;
@@ -83,7 +83,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    grid-column-gap: 1rem;
+    column-gap: 1rem;
     width: 100%;
     font-size: 1.8rem;
     animation: fadeIn 2s ease-in-out;

@@ -107,7 +107,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-row-gap: 1rem;
+    row-gap: 1rem;
   }
   .some-animation-tools input[type='range'] {
     width: 80%;
